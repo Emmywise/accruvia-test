@@ -16,7 +16,7 @@ class Tweet(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
+    # get request for tweets
     def get(self, request, pk=None):
         queryset = Tweets.objects.all()
 
@@ -24,9 +24,5 @@ class Tweet(APIView):
             queryset=queryset.order_by('name')
         elif self.request.query_params.get('sort')=='date':
             queryset=queryset.order_by('-date_created')
-        
-        
-        # queryset=Tweets.objects.filter().order_by('-date_created')
-        # queryset = self.get_queryset().order_by('-date_created') 
         serializer = TweetSerializer(queryset, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
