@@ -20,9 +20,9 @@ class Tweet(APIView):
     def get(self, request, pk=None):
         queryset = Tweets.objects.all()
 
-        if self.request.query_params.get('sort')==  'name':
+        if self.request.query_params.get('sort')==  'name': #sort by name
             queryset=queryset.order_by('name')
-        elif self.request.query_params.get('sort')=='date':
+        elif self.request.query_params.get('sort')=='date': #sort by date/time
             queryset=queryset.order_by('-date_created')
         serializer = TweetSerializer(queryset, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
