@@ -19,7 +19,7 @@ py manage.py migrate
 ### start Django server
 py manage.py runserver
 * use the link below for direct access to the endpoints
-* http://127.0.0.1/api/endpoint/
+* http://localhost:8000/api/tweet/
 
 # TEST
 Unit-test for this application is available, to run the test, go to accruvia directory and run
@@ -28,7 +28,6 @@ Unit-test for this application is available, to run the test, go to accruvia dir
 
 # TO run the vue/fronted server
 
-# dev-test-fe
 
 ## Project setup
 ```
